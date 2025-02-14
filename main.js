@@ -49,7 +49,6 @@ app.get('/signup',(req,res)=>{
 })
 
 app.post('/',(req,res)=>{
-    console.log(req.body)
     res.send("It's a Post Request");
 })
 
