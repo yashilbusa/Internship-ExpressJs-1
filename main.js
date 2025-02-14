@@ -2,11 +2,11 @@ const express = require('express');
 const app = express();
 const port = 3056;
 
+const bodyparser = require('body-parser');
 const path = require('path');
 
 const blog = require('./routes/blog')
 const shop = require('./routes/shop')
-
 
 app.use('/blog',blog)
 app.use('/shop',shop)
@@ -14,6 +14,19 @@ app.use('/shop',shop)
 // built in middleware 
 // app.use(express.static("public"));
 app.use(express.json());
+
+const dataParse = bodyparser.json()
+const dataUrl = bodyparser.urlencoded()
+
+app.post('/login', dataParse, (req, res) =>{
+    console.log(req.body);
+    res.status(200).send(req.body.username)
+  })
+  
+app.post('/api', dataUrl,  (req, res) =>{
+    console.log(req.body);
+    res.status(200).send(req.body)
+})
 
 
 
