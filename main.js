@@ -1,10 +1,33 @@
 const express = require('express');
 const app = express();
+const port = 3056;
+
 const path = require('path');
-const port = 3012;
+
+const blog = require('./routes/blog')
+const shop = require('./routes/shop')
 
 
+app.use('/blog',blog)
+app.use('/shop',shop)
+
+// built in middleware 
 // app.use(express.static("public"));
+
+//Application Level MiddleWare
+
+app.use((req,res,next)=>{
+    req.val = "I am Yashil Busa"
+    console.log("Middleware 1");
+    next()
+})
+
+app.use((req,res,next)=>{
+    console.log("Middleware 2");
+    next()
+})
+
+
 
 app.get('/',(req,res)=>{
     res.send("<b>Home Page</b>");
