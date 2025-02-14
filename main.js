@@ -13,6 +13,9 @@ app.use('/shop',shop)
 
 // built in middleware 
 // app.use(express.static("public"));
+app.use(express.json());
+
+
 
 //Application Level MiddleWare
 
@@ -45,8 +48,8 @@ app.get('/signup',(req,res)=>{
     res.sendFile(filePath);
 })
 
-
 app.post('/',(req,res)=>{
+    console.log(req.body)
     res.send("It's a Post Request");
 })
 
