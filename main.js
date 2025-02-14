@@ -71,11 +71,14 @@ app.put('/',(req,res)=>{
 
 
 //Template Engine
+app.set('views','./Views'); 
 app.set('view engine','ejs');
 
 app.get('/homeEngine',(req,res)=>{
-    res.render('home')
+    res.render('home',{name:"Yashil Busa"})
 })
+
+
 app.listen(port,()=>{
     console.log(`Server is Running on http://localhost:${port}`);
 }) 
