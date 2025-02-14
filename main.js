@@ -18,15 +18,14 @@ app.use('/shop',shop)
 
 app.use((req,res,next)=>{
     req.val = "I am Yashil Busa"
-    console.log("Middleware 1");
+    // console.log("Middleware 1");
     next()
 })
 
 app.use((req,res,next)=>{
-    console.log("Middleware 2");
+    // console.log("Middleware 2");
     next()
 })
-
 
 
 app.get('/',(req,res)=>{
